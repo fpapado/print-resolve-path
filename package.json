@@ -13,7 +13,8 @@
     "print-resolve-path": "dist/bin.js"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "pnpm build && publint"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,8 @@
     "@tsconfig/node24": "24.0.4",
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "25.2.2",
+    "prettier": "3.8.1",
+    "publint": "0.3.17",
     "typescript": "5.9.3"
   }
 }

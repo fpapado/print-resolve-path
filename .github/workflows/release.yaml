@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions: {}
+
+jobs:
+  release:
+    # do not run on forks
+    if: github.repository == 'fpapado/print-resolve-path'
+    permissions:
+      contents: write # to create the release itself (changesets/action)
+      id-token: write # OpenID Connect token needed for npm publish provenance
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          registry-url: "https://registry.npmjs.org"
+      # Need to bootstrap corepack separately, because of a key rotation issue,
+      # and that issue not being fixed in the corepack version that ships with
+      # node at the time of writing
+      - run: npm install --global corepack
+      - run: corepack enable
+      - run: pnpm install
+      - run: pnpm publish --public
+        env:
+          NPM_CONFIG_PROVENANCE: true
