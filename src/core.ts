@@ -12,5 +12,8 @@ export function resolvePath({
   const require = createRequire(cwd);
   const fromPath = require.resolve(fromId, { paths: [cwd] });
 
-  return require.resolve(toId, { paths: [fromPath] });
+  return {
+    fromPath,
+    toPath: require.resolve(toId, { paths: [fromPath] }),
+  };
 }
