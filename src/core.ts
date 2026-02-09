@@ -1,3 +1,16 @@
-export function resolvePath({ from, to }: { from: string; to: string }) {
-  return import.meta.resolve(from, import.meta.resolve(to, process.cwd()));
+import { createRequire } from "node:module";
+
+export function resolvePath({
+  cwd,
+  fromId,
+  toId,
+}: {
+  cwd: string;
+  fromId: string;
+  toId: string;
+}) {
+  const require = createRequire(cwd);
+  const fromPath = require.resolve(fromId, { paths: [cwd] });
+
+  return require.resolve(toId, { paths: [fromPath] });
 }

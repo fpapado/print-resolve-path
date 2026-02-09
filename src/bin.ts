@@ -3,13 +3,13 @@ import { resolvePath } from "./core.ts";
 
 function main() {
   const args = process.argv.slice(2);
-  const [from, to] = args;
+  const [fromId, toId] = args;
 
-  if (!from || !to) {
+  if (!fromId || !toId) {
     throw new Error("Two positional arguments must be provided.");
   }
 
-  console.log(resolvePath({ from, to }));
+  console.log(resolvePath({ fromId, toId, cwd: process.cwd() }));
 }
 
 main();
