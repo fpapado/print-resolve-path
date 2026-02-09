@@ -1,7 +1,7 @@
 {
   "name": "print-resolve-path",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI utility to get the path to a resolved dependency, from within another dependency. Useful when debugging package manager node_modules structures.",
   "files": [
     "dist/",
