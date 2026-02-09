@@ -34,6 +34,6 @@ jobs:
       - run: npm install --global corepack
       - run: corepack enable
       - run: pnpm install
-      - run: pnpm publish --public
+      - run: pnpm publish --access --public
         env:
           NPM_CONFIG_PROVENANCE: true
