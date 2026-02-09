@@ -17,8 +17,12 @@
     "prepublishOnly": "pnpm build && publint"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Fotis Papadogeorgopoulos <fotis@fpapado.com> (https://fotis.xyz)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fpapado/print-resolve-path"
+  },
+  "license": "MIT",
   "packageManager": "pnpm@10.21.0",
   "devDependencies": {
     "@tsconfig/node-ts": "23.6.3",
