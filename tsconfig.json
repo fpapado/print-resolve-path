@@ -1,0 +1,7 @@
+{
+  "extends": ["@tsconfig/node24", "@tsconfig/strictest", "@tsconfig/node-ts"],
+  "include": ["src/*.ts"],
+  "compilerOptions": {
+    "outDir": "dist/"
+  }
+}

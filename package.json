@@ -1,0 +1,29 @@
+{
+  "name": "print-resolve-path",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "CLI utility to get the path to a resolved dependency, from within another dependency. Useful when debugging package manager node_modules structures.",
+  "files": [
+    "dist/",
+    "README.md",
+    "package.json"
+  ],
+  "bin": {
+    "prp": "dist/bin.js",
+    "print-resolve-path": "dist/bin.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.21.0",
+  "devDependencies": {
+    "@tsconfig/node-ts": "23.6.3",
+    "@tsconfig/node24": "24.0.4",
+    "@tsconfig/strictest": "2.0.8",
+    "@types/node": "25.2.2",
+    "typescript": "5.9.3"
+  }
+}
